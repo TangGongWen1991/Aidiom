@@ -1,0 +1,28 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "module description"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "description"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "label"
+    },
+    {
+      "name": "tab_home_name",
+      "value": "Home"
+    },
+    {
+      "name": "tab_category_name",
+      "value": "Category"
+    },
+    {
+      "name": "tab_mine_name",
+      "value": "Mine"
+    }
+  ]
+}
