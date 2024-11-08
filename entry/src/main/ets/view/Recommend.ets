@@ -3,17 +3,21 @@ export struct Recommend {
   @State message: string = 'Hello World';
 
   build() {
-    RelativeContainer() {
-      Text(this.message)
-        .id('RecommendHelloWorld')
-        .fontSize(50)
+    Column(){
+      Text("今日推荐")
+        .fontSize("20fp")
+        .fontStyle(FontStyle.Normal)
         .fontWeight(FontWeight.Bold)
-        .alignRules({
-          center: { anchor: '__container__', align: VerticalAlign.Center },
-          middle: { anchor: '__container__', align: HorizontalAlign.Center }
-        })
+        .height("10%")
+      Text("更多")
+        .fontSize("20fp")
+        .fontStyle(FontStyle.Normal)
+        .fontWeight(FontWeight.Bold)
+        .height("10%")
     }
+    .alignItems(HorizontalAlign.Start)
     .height('100%')
     .width('100%')
+    .padding("20vp")
   }
 }

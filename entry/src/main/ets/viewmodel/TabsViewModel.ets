@@ -1,4 +1,4 @@
-import { TabBarItem } from './TabBarItem';
+import { TabBarItem } from '../entity/beans';
 
 /**
  * Binds data to components and provides interfaces.

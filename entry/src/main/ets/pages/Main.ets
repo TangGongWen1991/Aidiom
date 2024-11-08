@@ -3,7 +3,7 @@ import { BreakpointSystem, BreakPointType } from "../utils/BreakpointSystem";
 import { Category } from "../view/Category";
 import { Mine } from "../view/Mine";
 import { Recommend } from "../view/Recommend";
-import { TabBarItem } from "../viewmodel/TabBarItem";
+import { TabBarItem } from "../entity/beans";
 import TabsViewModel from "../viewmodel/TabsViewModel";
 
 @Entry
