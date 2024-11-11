@@ -5,8 +5,8 @@ export class TabBarItem {
 }
 
 export class RecommendItem{
-  name: Resource = $r('app.string.tab_home_name');
-  bg: string = "";
+  name: string ="测试1";
+  bg: string = "https://i2.hdslb.com/bfs/archive/3035faa638a2098e9987e6c45cbd88f916966eb9.jpg";
   type:string = ""
   id: string = "";
 }
