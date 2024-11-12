@@ -1,4 +1,4 @@
-import { MoreRecItem, RecommendItem, TabBarItem } from '../entity/beans';
+import { TopPicItem, RecommendItem, TabBarItem } from '../entity/beans';
 
 /**
  * Binds data to components and provides interfaces.
@@ -21,15 +21,15 @@ export class RecommendViewModel {
   }
 
 
-  getToMoreRecommendData(): Array<MoreRecItem> {
-    let recItems: Array<MoreRecItem> = [];
-    let moreItem: MoreRecItem = new MoreRecItem();
-    recItems.push(moreItem)
-    recItems.push(moreItem)
-    recItems.push(moreItem)
-    recItems.push(moreItem)
-    recItems.push(moreItem)
-    return recItems;
+  getRecommendTopicData(): Array<TopPicItem> {
+    let items: Array<TopPicItem> = [];
+    let moreItem: TopPicItem = new TopPicItem();
+    items.push(moreItem)
+    items.push(moreItem)
+    items.push(moreItem)
+    items.push(moreItem)
+    items.push(moreItem)
+    return items;
   }
 }
 

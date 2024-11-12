@@ -12,8 +12,17 @@ export class RecommendItem{
 }
 
 
-export class MoreRecItem{
-  categoryId:string = ""
-  categoryName:string = ""
-  items:RecommendItem[] = []
+export class HisToryItem{
+  name: string ="测试1";
+  bg: string = "https://i2.hdslb.com/bfs/archive/3035faa638a2098e9987e6c45cbd88f916966eb9.jpg";
+  type:string = ""
+  id: string = "";
+}
+
+
+
+export class TopPicItem{
+  topPicId:string = ""
+  topPicName:string = ""
+  cover:string = "https://i2.hdslb.com/bfs/archive/3035faa638a2098e9987e6c45cbd88f916966eb9.jpg"
 }
