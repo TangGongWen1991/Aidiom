@@ -1,19 +1,43 @@
+import { CategoryItem } from "../entity/beans"
+
 @Component
 export struct Category {
-  @State message: string = 'Hello World';
+  @State cateGoryItems:Array<CategoryItem> = []
+
 
   build() {
-    RelativeContainer() {
-      Text(this.message)
-        .id('CategoryHelloWorld')
-        .fontSize(50)
-        .fontWeight(FontWeight.Bold)
-        .alignRules({
-          center: { anchor: '__container__', align: VerticalAlign.Center },
-          middle: { anchor: '__container__', align: HorizontalAlign.Center }
-        })
-    }
-    .height('100%')
-    .width('100%')
+    Grid(){
+
+      ForEach(this.cateGoryItems ,(item : CategoryItem,index :number)=>{
+        GridItem() {
+          CategotyItemView({ cateGoryItem: item })
+        }
+      })
+
+    }.maxCount(4).width("100%")
+    .height("40%")
+    .rowsTemplate("1fr 1fr")
+    .columnsTemplate("1fr 1fr")
+    .columnsGap(10)
+    .rowsGap(8)
   }
 }
+
+@Component
+export  struct CategotyItemView{
+  @Prop cateGoryItem:CategoryItem
+  build() {
+    Column(){
+      Image(this.cateGoryItem.cover).height("80%").borderRadius(8)
+      Text(this.cateGoryItem.name)
+        .margin({top:"6vp"})
+        .fontSize("16fp")
+        .height("20%")
+    }.alignItems(HorizontalAlign.Center).alignItems(HorizontalAlign.Center)
+    .onClick(()=>{
+
+    })
+  }
+}
+
+
