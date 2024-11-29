@@ -1,4 +1,4 @@
-import { TopPicItem, RecommendItem, TabBarItem } from '../entity/beans';
+import { TopPicItem, RecommendItem, TabBarItem, StoryItem } from '../entity/beans';
 
 /**
  * Binds data to components and provides interfaces.
@@ -9,14 +9,29 @@ export class RecommendViewModel {
    *
    * @return {Array<TabBarItem>} tabItems
    */
-  getTodayRecommendData(): Array<RecommendItem> {
-    let recItems: Array<RecommendItem> = [];
-    let itemHomeInfo: RecommendItem = new RecommendItem();
+  getTodayRecommendData(): Array<StoryItem> {
+    let recItems: Array<StoryItem> = [];
+    let itemHomeInfo: StoryItem = new StoryItem();
     recItems.push(itemHomeInfo)
     recItems.push(itemHomeInfo)
     recItems.push(itemHomeInfo)
     recItems.push(itemHomeInfo)
     recItems.push(itemHomeInfo)
+    recItems.push(itemHomeInfo)
+
+    return recItems;
+  }
+
+  getHistoryData(): Array<StoryItem> {
+    let recItems: Array<StoryItem> = [];
+    let itemHomeInfo: StoryItem = new StoryItem();
+    recItems.push(itemHomeInfo)
+    recItems.push(itemHomeInfo)
+    recItems.push(itemHomeInfo)
+    recItems.push(itemHomeInfo)
+    recItems.push(itemHomeInfo)
+    recItems.push(itemHomeInfo)
+
     return recItems;
   }
 
@@ -24,8 +39,6 @@ export class RecommendViewModel {
   getRecommendTopicData(): Array<TopPicItem> {
     let items: Array<TopPicItem> = [];
     let moreItem: TopPicItem = new TopPicItem();
-    items.push(moreItem)
-    items.push(moreItem)
     items.push(moreItem)
     items.push(moreItem)
     items.push(moreItem)

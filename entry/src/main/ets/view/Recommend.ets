@@ -1,14 +1,20 @@
-import { RecommendItem, TopPicItem } from "../entity/beans";
+import { HisToryItem, RecommendItem, StoryItem, TopPicItem } from "../entity/beans";
 
 import recommendViewModel from "../viewmodel/RecommendViewModel";
+import router from "@ohos.router";
+import { promptAction } from "@kit.ArkUI";
 
 @Component
 export struct Recommend {
-@State recItems:Array<RecommendItem> = []
+@State recItems:Array<StoryItem> = []
+
+  @State historyItems:Array<StoryItem> = []
+
   @State topItems:Array<TopPicItem> = []
 
 
   aboutToAppear(): void {
+  this.historyItems = recommendViewModel.getHistoryData()
   this.recItems = recommendViewModel.getTodayRecommendData()
     this.topItems = recommendViewModel.getRecommendTopicData()
 }
@@ -25,8 +31,8 @@ export struct Recommend {
             .height("10%")
           Scroll(){
             Row({space:"20vp"}){
-              ForEach(this.recItems ,(item : RecommendItem,index :number)=>{
-                HistoryItemView({recItem:item})
+              ForEach(this.historyItems ,(item : RecommendItem,index :number)=>{
+                HistoryItemView({historyItem:item})
               })
             }.alignItems(VerticalAlign.Center).height("14%")
           }
@@ -46,9 +52,8 @@ export struct Recommend {
               }
             })
 
-          }.maxCount(4).width("100%")
-          .height("40%")
-          .rowsTemplate("1fr 1fr")
+          }.width("100%")
+          .rowsTemplate("1fr 1fr 1fr")
           .columnsTemplate("1fr 1fr")
           .columnsGap(10)
           .rowsGap(8)
@@ -78,26 +83,25 @@ export struct RecItemView{
         .margin({top:"6vp"})
         .fontSize("16fp")
         .height("20%")
-      }.alignItems(HorizontalAlign.Center).alignItems(HorizontalAlign.Center)
-    .onClick(()=>{
-
+      }.alignItems(HorizontalAlign.Center).onClick(()=>{
+      router.pushUrl({url:"pages/StoryDetail"})
     })
+
   }
 }
 
 
 @Component
 export struct HistoryItemView{
-  @Prop recItem:RecommendItem
+  @Prop historyItem:HisToryItem
   build() {
     Column(){
-      Image(this.recItem.bg).width("30%").borderRadius(6)
-      Text(this.recItem.name)
+      Image(this.historyItem.bg).width("30%").borderRadius(6)
+      Text(this.historyItem.name)
         .margin({top:"10vp"})
         .fontSize("16fp")
-    }.alignItems(HorizontalAlign.Center)
-    .onClick(()=>{
-
+    }.alignItems(HorizontalAlign.Center).onClick(()=>{
+      router.pushUrl({url:"pages/StoryDetail"})
     })
   }
 }
@@ -109,9 +113,8 @@ export struct TopPicItemView{
   build() {
     Column(){
       Image(this.topItem.cover).width("100%").height("20%").borderRadius(6)
-    }.alignItems(HorizontalAlign.Center)
-    .onClick(()=>{
-
+    }.alignItems(HorizontalAlign.Center).onClick(()=>{
+        promptAction.showToast({message:"点击了推荐主题"})
     })
   }
 }
@@ -121,7 +124,7 @@ export struct TopPicItemView{
 export struct TopPicView{
   @Prop topPicItems:TopPicItem[]
   build() {
-    Column({space:"10vp"}){
+    Column({space:"16vp"}){
       ForEach(this.topPicItems ,(item : TopPicItem,index :number)=>{
         TopPicItemView({topItem:item})
       })

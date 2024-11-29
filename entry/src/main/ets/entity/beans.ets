@@ -43,6 +43,6 @@ export class TopPicItem{
 
 export class CategoryItem{
   id:string = ""
-  name:string = ""
-  cover:string = ""
+  name:string = "分类1"
+  cover:string = "https://i2.hdslb.com/bfs/archive/3035faa638a2098e9987e6c45cbd88f916966eb9.jpg"
 }
