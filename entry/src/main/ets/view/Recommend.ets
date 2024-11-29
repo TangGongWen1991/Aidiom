@@ -1,4 +1,4 @@
-import { HisToryItem, RecommendItem, StoryItem, TopPicItem } from "../entity/beans";
+import {  StoryItem, TopPicItem } from "../entity/beans";
 
 import recommendViewModel from "../viewmodel/RecommendViewModel";
 import router from "@ohos.router";
@@ -31,7 +31,7 @@ export struct Recommend {
             .height("10%")
           Scroll(){
             Row({space:"20vp"}){
-              ForEach(this.historyItems ,(item : RecommendItem,index :number)=>{
+              ForEach(this.historyItems ,(item : StoryItem,index :number)=>{
                 HistoryItemView({historyItem:item})
               })
             }.alignItems(VerticalAlign.Center).height("14%")
@@ -46,7 +46,7 @@ export struct Recommend {
             .height("10%")
           Grid(){
 
-            ForEach(this.recItems ,(item : RecommendItem,index :number)=>{
+            ForEach(this.recItems ,(item : StoryItem,index :number)=>{
               GridItem() {
                 RecItemView({ recItem: item })
               }
@@ -75,7 +75,7 @@ export struct Recommend {
 
 @Component
 export struct RecItemView{
-  @Prop recItem:RecommendItem
+  @Prop recItem:StoryItem
   build() {
     Column(){
        Image(this.recItem.bg).height("80%").borderRadius(8)
@@ -93,7 +93,7 @@ export struct RecItemView{
 
 @Component
 export struct HistoryItemView{
-  @Prop historyItem:HisToryItem
+  @Prop historyItem:StoryItem
   build() {
     Column(){
       Image(this.historyItem.bg).width("30%").borderRadius(6)

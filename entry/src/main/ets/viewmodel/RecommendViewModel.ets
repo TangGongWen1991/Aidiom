@@ -1,4 +1,4 @@
-import { TopPicItem, RecommendItem, TabBarItem, StoryItem } from '../entity/beans';
+import { TopPicItem, StoryItem } from '../entity/beans';
 
 /**
  * Binds data to components and provides interfaces.
