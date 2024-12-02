@@ -1,4 +1,4 @@
-import {  StoryItem, TopPicItem } from "../entity/beans";
+import {  Story, TopPicItem } from "../entity/beans";
 
 import recommendViewModel from "../viewmodel/RecommendViewModel";
 import router from "@ohos.router";
@@ -6,9 +6,9 @@ import { promptAction } from "@kit.ArkUI";
 
 @Component
 export struct Recommend {
-@State recItems:Array<StoryItem> = []
+@State recItems:Array<Story> = []
 
-  @State historyItems:Array<StoryItem> = []
+  @State historyItems:Array<Story> = []
 
   @State topItems:Array<TopPicItem> = []
 
@@ -31,7 +31,7 @@ export struct Recommend {
             .height("10%")
           Scroll(){
             Row({space:"20vp"}){
-              ForEach(this.historyItems ,(item : StoryItem,index :number)=>{
+              ForEach(this.historyItems ,(item : Story,index :number)=>{
                 HistoryItemView({historyItem:item})
               })
             }.alignItems(VerticalAlign.Center).height("14%")
@@ -46,7 +46,7 @@ export struct Recommend {
             .height("10%")
           Grid(){
 
-            ForEach(this.recItems ,(item : StoryItem,index :number)=>{
+            ForEach(this.recItems ,(item : Story,index :number)=>{
               GridItem() {
                 RecItemView({ recItem: item })
               }
@@ -75,11 +75,11 @@ export struct Recommend {
 
 @Component
 export struct RecItemView{
-  @Prop recItem:StoryItem
+  @Prop recItem:Story
   build() {
     Column(){
-       Image(this.recItem.bg).height("80%").borderRadius(8)
-      Text(this.recItem.name)
+       Image(this.recItem.cover).height("80%").borderRadius(8)
+      Text(this.recItem.title)
         .margin({top:"6vp"})
         .fontSize("16fp")
         .height("20%")
@@ -93,11 +93,11 @@ export struct RecItemView{
 
 @Component
 export struct HistoryItemView{
-  @Prop historyItem:StoryItem
+  @Prop historyItem:Story
   build() {
     Column(){
-      Image(this.historyItem.bg).width("30%").borderRadius(6)
-      Text(this.historyItem.name)
+      Image(this.historyItem.cover).width("30%").borderRadius(6)
+      Text(this.historyItem.title)
         .margin({top:"10vp"})
         .fontSize("16fp")
     }.alignItems(HorizontalAlign.Center).onClick(()=>{

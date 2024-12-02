@@ -1,4 +1,4 @@
-import { TopPicItem, StoryItem } from '../entity/beans';
+import { TopPicItem, Story } from '../entity/beans';
 
 /**
  * Binds data to components and provides interfaces.
@@ -9,9 +9,9 @@ export class RecommendViewModel {
    *
    * @return {Array<TabBarItem>} tabItems
    */
-  getTodayRecommendData(): Array<StoryItem> {
-    let recItems: Array<StoryItem> = [];
-    let itemHomeInfo: StoryItem = new StoryItem();
+  getTodayRecommendData(): Array<Story> {
+    let recItems: Array<Story> = [];
+    let itemHomeInfo: Story = new Story();
     recItems.push(itemHomeInfo)
     recItems.push(itemHomeInfo)
     recItems.push(itemHomeInfo)
@@ -22,9 +22,9 @@ export class RecommendViewModel {
     return recItems;
   }
 
-  getHistoryData(): Array<StoryItem> {
-    let recItems: Array<StoryItem> = [];
-    let itemHomeInfo: StoryItem = new StoryItem();
+  getHistoryData(): Array<Story> {
+    let recItems: Array<Story> = [];
+    let itemHomeInfo: Story = new Story();
     recItems.push(itemHomeInfo)
     recItems.push(itemHomeInfo)
     recItems.push(itemHomeInfo)
