@@ -1,3 +1,6 @@
+import { router } from "@kit.ArkUI";
+import { url } from "@kit.ArkTS";
+
 @Component
 export struct Mine {
   @State message: string = 'Hello World';
@@ -67,7 +70,9 @@ struct UserInfoView{
       Column(){
         Text("猫小米").height("70%").align(Alignment.TopStart).fontColor(Color.Black).fontSize("16fp")
         Text("登录可体验完整的功能").height("30%").align(Alignment.BottomStart).fontColor(Color.Gray).fontSize("14fp")
-      }.margin({left:"10vp"}).alignItems(HorizontalAlign.Start).height("100%").width("100%")
+      }.margin({left:"10vp"}).alignItems(HorizontalAlign.Start).height("100%").width("100%").onClick(_=>{
+        router.pushUrl({url: "pages/Login" })
+      })
 
     }.alignItems(VerticalAlign.Center).height("60vp").width("100%").margin({top:"10vp"})
   }

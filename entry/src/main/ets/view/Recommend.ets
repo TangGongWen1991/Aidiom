@@ -3,6 +3,8 @@ import {  Story, TopPicItem } from "../entity/beans";
 import recommendViewModel from "../viewmodel/RecommendViewModel";
 import router from "@ohos.router";
 import { promptAction } from "@kit.ArkUI";
+import { LoginService } from "../http/HttpUtil";
+import { LoginDTO } from "../http/model/HttpModel";
 
 @Component
 export struct Recommend {
@@ -85,6 +87,7 @@ export struct RecItemView{
         .height("20%")
       }.alignItems(HorizontalAlign.Center).onClick(()=>{
       router.pushUrl({url:"pages/StoryDetail"})
+
     })
 
   }

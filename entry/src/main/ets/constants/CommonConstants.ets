@@ -2,6 +2,8 @@
  * Common constants for all features.
  */
 export class CommonConstants {
+
+  static readonly API_KEY:string = '9f6954dbc6105e136fbe2c98425f3212'
   /**
    * Breakpoint sm.
    */
@@ -202,5 +204,14 @@ export class CommonConstants {
    * Breakpoint name.
    */
   static readonly BREAKPOINT_SYSTEM_NAME: string = 'mainBreakpoint';
+
+
+  static STORY_TYPE_CY :number = 1  //成语类型
+
+  static STORY_TYPE_SQ :number = 2  //睡前类型
+
+  static STORY_TYPE_TH :number = 3  //童话类型
+
+  static STORY_TYPE_YY :number = 4  //寓言类型
 
 }

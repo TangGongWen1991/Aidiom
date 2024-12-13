@@ -10,7 +10,7 @@ export class Story{
   id: string = ""
   title: string ="测试1";
   cover: string = "https://i2.hdslb.com/bfs/archive/3035faa638a2098e9987e6c45cbd88f916966eb9.jpg"
-  typeid:number = 0
+  storytype:number = 0
   content:string = ""
 
 
@@ -23,11 +23,11 @@ export class TopPicItem{
   categoryId:string = ""
 
   topPicName:string = ""
-  cover:string = "https://i2.hdslb.com/bfs/archive/3035faa638a2098e9987e6c45cbd88f916966eb9.jpg"
+  cover:string = "https://book.img.zhangyue01.com/group61/M00/9D/8A/CmQUOFydrJGEQAYlAAAAAB3pQhU181838262.jpg"
 }
 
 export class CategoryItem{
-  id:string = ""
+  id:number =0
   name:string = "分类1"
-  cover:string = "https://i2.hdslb.com/bfs/archive/3035faa638a2098e9987e6c45cbd88f916966eb9.jpg"
+  cover:string = "https://book.img.zhangyue01.com/group61/M00/9D/8A/CmQUOFydrJGEQAYlAAAAAB3pQhU181838262.jpg"
 }

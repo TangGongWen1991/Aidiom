@@ -1,4 +1,6 @@
+import { CommonConstants } from '../constants/CommonConstants';
 import { TopPicItem, Story } from '../entity/beans';
+import { StoryTodayRecService } from '../http/HttpUtil';
 
 /**
  * Binds data to components and provides interfaces.
@@ -18,7 +20,9 @@ export class RecommendViewModel {
     recItems.push(itemHomeInfo)
     recItems.push(itemHomeInfo)
     recItems.push(itemHomeInfo)
-
+    StoryTodayRecService({key:CommonConstants.API_KEY,num:6}).then(result=>{
+        
+    })
     return recItems;
   }
 
