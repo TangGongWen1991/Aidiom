@@ -1,23 +1,51 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2024-2024. All rights reserved.
+ */
+
 import { hilog } from '@kit.PerformanceAnalysisKit';
+import { CommonConstants } from '../constants/CommonConstants';
 
-export class Logger {
-  static PREFIX: string = 'testTag';
-  static DOMAIN: number = 0xFF00;
-  static FORMAT: string = '%{public}s, %{public}s';
+class Logger {
+  private domain: number;
+  private prefix: string;
+  private format: string = '%{public}s, %{public}s';
 
-  static debug(...args: string[]): void {
-    hilog.debug(Logger.DOMAIN, Logger.PREFIX, Logger.FORMAT, args);
+  constructor(prefix: string) {
+    this.prefix = prefix;
+    this.domain = 0xFF00;
   }
 
-  static info(...args: string[]): void {
-    hilog.info(Logger.DOMAIN, Logger.PREFIX, Logger.FORMAT, args);
+  /**
+   * Outputs debug-level logs.
+   * @param args Indicates the log parameters.
+   */
+  debug(...args: string[]) {
+    hilog.debug(this.domain, this.prefix, this.format, args);
   }
 
-  static warn(...args: string[]): void {
-    hilog.warn(Logger.DOMAIN, Logger.PREFIX, Logger.FORMAT, args);
+  /**
+   * Outputs info-level logs.
+   * @param args Indicates the log parameters.
+   */
+  info(...args: string[]) {
+    hilog.info(this.domain, this.prefix, this.format, args);
   }
 
-  static error(...args: string[]): void {
-    hilog.error(Logger.DOMAIN, Logger.PREFIX, Logger.FORMAT, args);
+  /**
+   * Outputs warning-level logs.
+   * @param args Indicates the log parameters.
+   */
+  warn(...args: string[]) {
+    hilog.warn(this.domain, this.prefix, this.format, args);
+  }
+
+  /**
+   * Outputs error-level logs.
+   * @param args Indicates the log parameters.
+   */
+  error(...args: string[]) {
+    hilog.error(this.domain, this.prefix, this.format, args);
   }
 }
+
+export default new Logger(CommonConstants.TAG);

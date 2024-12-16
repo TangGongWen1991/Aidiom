@@ -1,5 +1,5 @@
 import {httpRequest} from '../http/HttpCore';
-import {LoginDTO,LoginParams, StoryTodayRecDTO, StoryTodayRecParams} from './model/HttpModel'
+import {LoginDTO,LoginParams, StoryTodayRecDTO, StoryTodayRecParams} from '../model/HttpModel'
 import {RequestEnum} from '../http/HttpEnum'
 
 enum Api {

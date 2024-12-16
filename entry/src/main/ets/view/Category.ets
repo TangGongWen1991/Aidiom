@@ -37,7 +37,8 @@ export  struct CategotyItemView{
       Image(this.cateGoryItem.cover).height("80%").borderRadius(8)
       Text(this.cateGoryItem.name)
         .margin({top:"6vp"})
-        .fontSize("16fp")
+        .fontSize("22fp")
+        .fontWeight(FontWeight.Bold)
         .height("20%")
     }
     .height("45%")

@@ -8,9 +8,8 @@ export class TabBarItem {
 
 export class Story{
   id: string = ""
-  title: string ="测试1";
-  cover: string = "https://i2.hdslb.com/bfs/archive/3035faa638a2098e9987e6c45cbd88f916966eb9.jpg"
-  storytype:number = 0
+  title: string ="测试标题";
+  typeid: number = 0
   content:string = ""
 
 

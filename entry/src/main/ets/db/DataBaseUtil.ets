@@ -16,14 +16,13 @@ class DataBaseUtils {
 
   constructor( ) {
     this.tableName = 'story'
-    this.columns = ['id', 'title', 'cover', 'typeid', 'content']
+    this.columns = ['id', 'title', 'typeid', 'content']
     this.sql_create_table = 'CREATE TABLE IF NOT EXISTS '
       + this.tableName + '('
       + 'id TEXT PRIMARY KEY  '
       + 'title TEXT NOT NULL, '
-      + 'cover TEXT, '
       + 'content TEXT, '
-      + 'typeid TEXT)';
+      + 'typeid INT)';
     this.rdb = new Rdb(this.sql_create_table)
     this.rdb.getRdbStore()
   }
@@ -89,7 +88,6 @@ class DataBaseUtils {
       let story = new Story()
       story.id =   resultSet.getString(resultSet.getColumnIndex('id')) ;
       story.title = resultSet.getString(resultSet.getColumnIndex('title'))
-      story.cover = resultSet.getString(resultSet.getColumnIndex('cover'))
       story.typeid = resultSet.getLong(resultSet.getColumnIndex('typeid'))
      story.content =  resultSet.getString(resultSet.getColumnIndex('content'))
       storyList.add(story);

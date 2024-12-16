@@ -4,7 +4,8 @@ import recommendViewModel from "../viewmodel/RecommendViewModel";
 import router from "@ohos.router";
 import { promptAction } from "@kit.ArkUI";
 import { LoginService } from "../http/HttpUtil";
-import { LoginDTO } from "../http/model/HttpModel";
+import { LoginDTO } from "../model/HttpModel";
+import { CommonConstants } from "../constants/CommonConstants";
 
 @Component
 export struct Recommend {
@@ -79,13 +80,14 @@ export struct Recommend {
 export struct RecItemView{
   @Prop recItem:Story
   build() {
-    Column(){
-       Image(this.recItem.cover).height("80%").borderRadius(8)
+    Stack(){
+       Image(CommonConstants.STORY_BG[Math.floor(Math.random() * 8)]).height("200vp").width("160vp").borderRadius(8)
       Text(this.recItem.title)
-        .margin({top:"6vp"})
-        .fontSize("16fp")
-        .height("20%")
-      }.alignItems(HorizontalAlign.Center).onClick(()=>{
+        .fontSize("18fp")
+        .fontColor(Color.Black)
+        .fontWeight(FontWeight.Lighter)
+        .align(Alignment.Center)
+      }.onClick(()=>{
       router.pushUrl({url:"pages/StoryDetail"})
 
     })
@@ -99,7 +101,7 @@ export struct HistoryItemView{
   @Prop historyItem:Story
   build() {
     Column(){
-      Image(this.historyItem.cover).width("30%").borderRadius(6)
+      Image(CommonConstants.STORY_BG[Math.floor(Math.random() * 8)]).width("30%").borderRadius(6)
       Text(this.historyItem.title)
         .margin({top:"10vp"})
         .fontSize("16fp")

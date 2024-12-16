@@ -1,4 +1,4 @@
-import { Story } from "../../entity/beans";
+import { Story } from "../entity/beans";
 import { ArrayList } from "@kit.ArkTS";
 
 export interface BasicResult<T>{
