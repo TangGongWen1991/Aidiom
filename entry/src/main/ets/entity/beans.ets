@@ -15,6 +15,12 @@ export class Story{
 
 }
 
+export class UserInfo{
+  name?:string = "游客"
+  cover?:string = ""
+  unionID?:string=""
+}
+
 
 
 export class TopPicItem{

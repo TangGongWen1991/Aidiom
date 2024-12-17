@@ -1,10 +1,25 @@
 {
   "app": {
-    "signingConfigs": [],
+    "signingConfigs": [
+
+      {
+        "name": "debug",
+        "type": "HarmonyOS",
+        "material": {
+          "certpath": "C:\\Users\\tangg\\.ohos\\config\\debug_Aidiom_nbO1WoIeEC_Vnc6x4-cXC6ZwKtO7WLg9vwmVFQ-FPnk=.cer",
+          "storePassword": "0000001BF6B5DF648BAA41CA16C9F117DFBE1897E3318F1EF9585658687A6AD68A9AE3DA9A90D28752D930",
+          "keyAlias": "debugKey",
+          "keyPassword": "0000001B8D4F87A729F2C52168270380C3D89AB054C2B20326241263DD2980BE036F2AF16C0246409A9945",
+          "profile": "C:\\Users\\tangg\\.ohos\\config\\debug_Aidiom_nbO1WoIeEC_Vnc6x4-cXC6ZwKtO7WLg9vwmVFQ-FPnk=.p7b",
+          "signAlg": "SHA256withECDSA",
+          "storeFile": "C:\\Users\\tangg\\.ohos\\config\\debug_Aidiom_nbO1WoIeEC_Vnc6x4-cXC6ZwKtO7WLg9vwmVFQ-FPnk=.p12"
+        }
+      }
+    ],
     "products": [
       {
         "name": "default",
-        "signingConfig": "default",
+        "signingConfig": "debug",
         "compatibleSdkVersion": "5.0.0(12)",
         "runtimeOS": "HarmonyOS",
         "buildOption": {

@@ -1,5 +1,5 @@
 import { CommonConstants } from "../constants/CommonConstants";
-import { CategoryItem } from "../entity/beans";
+import { CategoryItem, UserInfo } from "../entity/beans";
 import commonEventManager from "@ohos.commonEventManager";
 import { BusinessError } from "@ohos.base";
 import PreferenceModel from "../model/PreferenceModel";
@@ -10,11 +10,9 @@ import router from "@ohos.router";
 
 
 export class MineViewModel{
-  loginState:boolean = false
-  cover: string | undefined;
-  name: string | undefined;
 
-  registerAccountState(){
+
+  registerAccountState(listener:()=>void){
     //订阅者信息。
     const subscribeInfo: commonEventManager.CommonEventSubscribeInfo = {
       events: [commonEventManager.Support.COMMON_EVENT_DISTRIBUTED_ACCOUNT_LOGIN,commonEventManager.Support.COMMON_EVENT_DISTRIBUTED_ACCOUNT_LOGOUT]
@@ -37,8 +35,7 @@ export class MineViewModel{
 
               }
               if (data.event === commonEventManager.Support.COMMON_EVENT_DISTRIBUTED_ACCOUNT_LOGOUT) {
-                // 订阅到华为账号登出事件
-                PreferenceModel.putPreference("hasLogin",false)
+                listener()
               }
             }
           });
@@ -50,7 +47,9 @@ export class MineViewModel{
   }
 
 
-  requestUserInfo(){
+
+
+  requestUserInfo(success: (info: UserInfo) => void){
     // 创建授权请求，并设置参数
     const authRequest = new authentication.HuaweiIDProvider().createAuthorizationWithHuaweiIDRequest();
     // 获取头像昵称需要传如下scope
@@ -72,12 +71,17 @@ export class MineViewModel{
         }
         hilog.info(0x0000, 'testTag', 'Succeeded in authentication.');
         const authorizationWithHuaweiIDCredential = authorizationWithHuaweiIDResponse.data!;
-        this.cover = authorizationWithHuaweiIDCredential.avatarUri;
-        this.name = authorizationWithHuaweiIDCredential.nickName;
+
+        let cover = authorizationWithHuaweiIDCredential.avatarUri;
+        let name = authorizationWithHuaweiIDCredential.nickName;
         let  unionID = authorizationWithHuaweiIDCredential.unionID;
         if (unionID!=null) {
           PreferenceModel.putPreference("unionID",unionID)
-          this.loginState = true
+          let userInfo = new UserInfo()
+          userInfo.name = name
+          userInfo.cover = cover
+          userInfo.unionID = unionID
+          success(userInfo)
         }
 
       }).catch((err: BusinessError) => {
@@ -92,7 +96,6 @@ export class MineViewModel{
 
   // 错误处理
   dealAllError(error: BusinessError): void {
-    router.pushUrl({url: "pages/Login" })
 
     hilog.error(0x0000, 'testTag', `Failed to auth. Code: ${error.code}, message: ${error.message}`);
   }

@@ -329,7 +329,7 @@ export class CommonConstants {
   /**
    * Login page url.
    */
-  static readonly ROUTER_LOGIN_URL: string = 'pages/LoginPage';
+  static readonly ROUTER_LOGIN_URL: string = 'pages/HuaweiLogin';
 
   /**
    * Register page url.
