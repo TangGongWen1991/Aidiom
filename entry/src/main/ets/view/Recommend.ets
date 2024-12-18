@@ -13,13 +13,11 @@ export struct Recommend {
 
   @State historyItems:Array<Story> = []
 
-  @State topItems:Array<TopPicItem> = []
 
 
   aboutToAppear(): void {
   this.historyItems = recommendViewModel.getHistoryData()
   this.recItems = recommendViewModel.getTodayRecommendData()
-    this.topItems = recommendViewModel.getRecommendTopicData()
 }
   build() {
 
@@ -56,16 +54,15 @@ export struct Recommend {
             })
 
           }.width("100%")
-          .rowsTemplate("1fr 1fr 1fr")
+
           .columnsTemplate("1fr 1fr")
-          .columnsGap(10)
-          .rowsGap(8)
-          Text("更多专题")
-            .fontSize("20fp")
-            .fontStyle(FontStyle.Normal)
-            .fontWeight(FontWeight.Bold)
-            .height("10%")
-          TopPicView({topPicItems:this.topItems})
+          .rowsGap(10)
+          // Text("更多专题")
+          //   .fontSize("20fp")
+          //   .fontStyle(FontStyle.Normal)
+          //   .fontWeight(FontWeight.Bold)
+          //   .height("10%")
+          // TopPicView({topPicItems:this.topItems})
 
         } .alignItems(HorizontalAlign.Start)
 
@@ -81,14 +78,14 @@ export struct RecItemView{
   @Prop recItem:Story
   build() {
     Stack(){
-       Image(CommonConstants.STORY_BG[Math.floor(Math.random() * 8)]).height("200vp").width("160vp").borderRadius(8)
+       Image(CommonConstants.STORY_BG[Math.floor(Math.random() * 8)]).height("120vp").width("160vp").borderRadius(8)
       Text(this.recItem.title)
         .fontSize("18fp")
         .fontColor(Color.Black)
         .fontWeight(FontWeight.Lighter)
         .align(Alignment.Center)
       }.onClick(()=>{
-      router.pushUrl({url:"pages/StoryDetail"})
+      router.pushUrl({url:"pages/StoryDetail",params:this.recItem})
 
     })
 
@@ -106,7 +103,7 @@ export struct HistoryItemView{
         .margin({top:"10vp"})
         .fontSize("16fp")
     }.alignItems(HorizontalAlign.Center).onClick(()=>{
-      router.pushUrl({url:"pages/StoryDetail"})
+      router.pushUrl({url:"pages/StoryDetail",params:this.historyItem})
     })
   }
 }

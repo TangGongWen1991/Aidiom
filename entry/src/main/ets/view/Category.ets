@@ -1,5 +1,6 @@
 import { CategoryItem } from "../entity/beans"
 import categoryViewModel from "../viewmodel/CateGoryViewModel"
+import { router } from "@kit.ArkUI"
 
 @Component
 export struct Category {
@@ -44,7 +45,7 @@ export  struct CategotyItemView{
     .height("45%")
     .alignItems(HorizontalAlign.Center)
     .onClick(()=>{
-
+        router.pushUrl({url:'pages/CategoryDetail',params:this.cateGoryItem.id})
     })
   }
 }

@@ -1,8 +1,25 @@
 import { CommonConstants } from "../constants/CommonConstants";
-import { CategoryItem } from "../entity/beans";
+import { CategoryItem, Story } from "../entity/beans";
 
 
 export class CateGoryViewModel{
+  getCategoryStoryListById(id:number):Array<Story>{
+    let storyList: Array<Story> = [];
+    let story: Story = new Story();
+    storyList.push(story)
+    storyList.push(story)
+    storyList.push(story)
+    storyList.push(story)
+    storyList.push(story)
+    storyList.push(story)
+    storyList.push(story)
+    storyList.push(story)
+    storyList.push(story)
+    storyList.push(story)
+
+    return storyList
+  }
+
   getCateGoryList(): Array<CategoryItem> {
     let categoryList: Array<CategoryItem> = [];
     let cateGoryItemCY: CategoryItem = new CategoryItem();
